@@ -35,3 +35,23 @@
     border-left: 3px solid #3498db;
     background: #243342;
 }
+
+/* The Arrow (Caret) */
+.btn-toggle::after {
+    display: inline-block;
+    content: "";
+    width: 0;
+    height: 0;
+    margin-left: auto; /* Pushes arrow to the right */
+    vertical-align: middle;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 6px solid #bdc3c7; /* The color of the arrow */
+    transition: transform 0.2s ease;
+}
+
+/* Rotate the arrow when the menu is open */
+.btn-toggle:not(.collapsed)::after {
+    transform: rotate(90deg);
+    border-left-color: #ffffff; /* Make it bright when open */
+}

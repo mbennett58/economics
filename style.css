@@ -1,59 +1,37 @@
-/* style.css - This controls the look of EVERY page */
-:root { 
-    --sidebar-width: 280px; 
-    --primary-dark: #2c3e50;
-    --sidebar-hover: #34495e;
-}
-
-body { 
-    background-color: #f4f7f6; 
-    display: flex; 
-    margin: 0;
-    font-family: sans-serif;
-}
-
-/* Sidebar Container */
-#sidebar-container {
-    width: var(--sidebar-width);
-    height: 100vh;
-    position: fixed;
-    background: var(--primary-dark);
-    color: white;
-    overflow-y: auto;
-}
-
-/* Sidebar Internal Styling (previously in your HTML) */
+/* Ensure the button acts as a flexbox to push the arrow to the right */
 .btn-toggle {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: .5rem .75rem;
-    width: 100%;
+    transition: background 0.3s;
+}
+
+/* The arrow icon */
+.caret-icon {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    color: #95a5a6;
+}
+
+/* Rotate the arrow 90 degrees when the menu is NOT collapsed (i.e., it is open) */
+.btn-toggle:not(.collapsed) .caret-icon {
+    transform: rotate(90deg);
     color: white;
-    background-color: transparent;
-    border: 0;
-    text-align: left;
 }
-.btn-toggle:hover { background-color: var(--sidebar-hover); }
-.collapse-inner { background: #1a252f; padding: 5px 0; }
+
+/* Ensure sub-items are stacked on new lines */
+.collapse-inner {
+    display: flex;
+    flex-direction: column; /* This puts each link on a new line */
+    background: #1a252f;
+}
+
 .collapse-inner a {
-    padding: 8px 30px;
-    display: block;
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 0.9rem;
-}
-.collapse-inner a:hover { background: #3498db; }
-
-/* Main Content Area */
-#content {
-    margin-left: var(--sidebar-width);
-    padding: 40px;
-    width: 100%;
+    padding: 10px 40px; /* Indent the sub-items for hierarchy */
+    border-left: 3px solid transparent;
 }
 
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-    body { flex-direction: column; }
-    #sidebar-container { width: 100%; height: auto; position: relative; }
-    #content { margin-left: 0; }
+.collapse-inner a:hover {
+    border-left: 3px solid #3498db;
+    background: #243342;
 }

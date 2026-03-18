@@ -1,5 +1,6 @@
-<div class="px-3 mb-4">
-    <h4 class="text-white">Economics Hub</h4>
+<div class="px-3 py-4">
+    <h4 class="text-white mb-0">Economics Hub</h4>
+    <p class="text-muted small">mbennett58 Resources</p>
     <hr class="text-secondary">
 </div>
 
@@ -7,48 +8,73 @@
     
     <div class="accordion-item bg-transparent border-0">
         <button class="btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#prelimContent">
-            📚 Preliminary Content
-            <span class="ms-auto caret-icon">▶</span>
+            <span>📚 Preliminary Content</span>
         </button>
+        
         <div id="prelimContent" class="collapse" data-bs-parent="#menuAccordion">
             <div class="collapse-inner">
-                <a href="/economics/prelim/intro.html">Introduction to Econ</a>
-                <a href="/economics/prelim/consumers.html">Consumers & Business</a>
-                <a href="/economics/prelim/markets.html">Markets</a>
+                
+                <div class="accordion accordion-flush" id="introEconNested">
+                    <div class="accordion-item bg-transparent border-0">
+                        <button class="btn-toggle collapsed ps-4 text-info" data-bs-toggle="collapse" data-bs-target="#introSubItems">
+                            🔹 Introduction to Econ
+                        </button>
+                        <div id="introSubItems" class="collapse sub-menu-bg" data-bs-parent="#introEconNested">
+                            <div class="collapse-inner">
+                                <a href="/economics/prelim/circular-flow.html" class="ps-5 small-text">1) Circular Flow Model</a>
+                                <a href="/economics/prelim/ppf.html" class="ps-5 small-text">2) PPF Model</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/economics/prelim/consumers.html" class="ps-4">Consumers & Business</a>
+                <a href="/economics/prelim/markets.html" class="ps-4">Markets</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item bg-transparent border-0">
+        <button class="btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#prelimPapers">
+            <span>📄 Prelim Past Papers</span>
+        </button>
+        <div id="prelimPapers" class="collapse" data-bs-parent="#menuAccordion">
+            <div class="collapse-inner">
+                <a href="/economics/papers/prelim-2024.pdf" class="ps-4">2024 Yearly Exam</a>
+                <a href="/economics/papers/prelim-2023.pdf" class="ps-4">2023 Yearly Exam</a>
             </div>
         </div>
     </div>
 
     <div class="accordion-item bg-transparent border-0">
         <button class="btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#hscContent">
-            🎓 HSC Content
-            <span class="ms-auto caret-icon">▶</span>
+            <span>🎓 HSC Content</span>
         </button>
         <div id="hscContent" class="collapse" data-bs-parent="#menuAccordion">
             <div class="collapse-inner">
-                <a href="/economics/hsc/global-economy.html">The Global Economy</a>
-                <a href="/economics/hsc/australia.html">Australia's Place</a>
-                <a href="/economics/hsc/policies.html">Economic Policies</a>
+                <a href="/economics/hsc/global-economy.html" class="ps-4">The Global Economy</a>
+                <a href="/economics/hsc/australia.html" class="ps-4">Australia's Place</a>
+                <a href="/economics/hsc/policies.html" class="ps-4">Economic Policies</a>
             </div>
         </div>
     </div>
 
     <div class="accordion-item bg-transparent border-0">
         <button class="btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#appsMenu">
-            ⚙️ Apps
-            <span class="ms-auto caret-icon">▶</span>
+            <span>⚙️ Apps & Tools</span>
         </button>
         <div id="appsMenu" class="collapse" data-bs-parent="#menuAccordion">
             <div class="collapse-inner">
-                <a href="/economics/apps/elasticity.html">PED Calculator</a>
-                <a href="/economics/apps/multiplier.html">The Multiplier</a>
+                <a href="/economics/apps/elasticity.html" class="ps-4">PED Calculator</a>
+                <a href="/economics/apps/multiplier.html" class="ps-4">Multiplier ($k$)</a>
             </div>
         </div>
     </div>
 
-    <div class="accordion-item bg-transparent border-0">
+    <div class="accordion-item bg-transparent border-0 border-top mt-2">
         <a href="/economics/data/index.html" class="btn-toggle text-decoration-none">
-            📊 Data
+            <span>📊 Economics Data</span>
         </a>
     </div>
+
 </div>

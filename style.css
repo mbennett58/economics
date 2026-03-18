@@ -1,0 +1,59 @@
+/* style.css - This controls the look of EVERY page */
+:root { 
+    --sidebar-width: 280px; 
+    --primary-dark: #2c3e50;
+    --sidebar-hover: #34495e;
+}
+
+body { 
+    background-color: #f4f7f6; 
+    display: flex; 
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* Sidebar Container */
+#sidebar-container {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    background: var(--primary-dark);
+    color: white;
+    overflow-y: auto;
+}
+
+/* Sidebar Internal Styling (previously in your HTML) */
+.btn-toggle {
+    display: flex;
+    align-items: center;
+    padding: .5rem .75rem;
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    text-align: left;
+}
+.btn-toggle:hover { background-color: var(--sidebar-hover); }
+.collapse-inner { background: #1a252f; padding: 5px 0; }
+.collapse-inner a {
+    padding: 8px 30px;
+    display: block;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.collapse-inner a:hover { background: #3498db; }
+
+/* Main Content Area */
+#content {
+    margin-left: var(--sidebar-width);
+    padding: 40px;
+    width: 100%;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    #sidebar-container { width: 100%; height: auto; position: relative; }
+    #content { margin-left: 0; }
+}

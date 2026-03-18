@@ -6,58 +6,151 @@
     <title>Mr. Bennett's Economics Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background-color: #f8f9fa; }
-        .hero { background: #004a99; color: white; padding: 60px 0; }
-        .card { transition: transform 0.2s; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .card:hover { transform: translateY(-5px); }
+        :root { --sidebar-width: 280px; }
+        body { background-color: #f4f7f6; }
+        
+        /* Sidebar Styling */
+        #sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #2c3e50;
+            color: white;
+            overflow-y: auto;
+            padding-top: 20px;
+        }
+        
+        /* Main Content area adjustment */
+        #content {
+            margin-left: var(--sidebar-width);
+            padding: 40px;
+        }
+
+        .nav-link { color: #bdc3c7; }
+        .nav-link:hover { color: white; background: #34495e; }
+        
+        /* Dropdown button styling */
+        .btn-toggle {
+            display: flex;
+            align-items: center;
+            padding: .5rem .75rem;
+            width: 100%;
+            color: white;
+            background-color: transparent;
+            border: 0;
+            text-align: left;
+        }
+        
+        .btn-toggle:hover { background-color: #34495e; }
+
+        /* Collapse styling */
+        .collapse-inner { background: #1a252f; padding: 5px 0; }
+        .collapse-inner a {
+            padding: 8px 30px;
+            display: block;
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .collapse-inner a:hover { background: #3498db; }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            #sidebar { width: 100%; height: auto; position: relative; }
+            #content { margin-left: 0; }
+        }
     </style>
 </head>
 <body>
 
-<header class="hero text-center">
-    <div class="container">
-        <h1>Economics Learning Portal</h1>
-        <p class="lead">Interactive Apps & Past Paper Resources</p>
+<div id="sidebar">
+    <div class="px-3 mb-4">
+        <h4>Economics Hub</h4>
+        <hr>
     </div>
-</header>
 
-<main class="container my-5">
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <h3>📈 Interactive Apps</h3>
-                    <p>Practice Supply & Demand shifts and Elasticity calculations.</p>
-                    <a href="apps/index.html" class="btn btn-primary">Try them out</a>
+    <div class="accordion accordion-flush" id="menuAccordion">
+        
+        <div class="accordion-item bg-transparent border-0">
+            <button class="btn-toggle" data-bs-toggle="collapse" data-bs-target="#prelimContent">
+                📚 Preliminary Content
+            </button>
+            <div id="prelimContent" class="collapse" data-bs-parent="#menuAccordion">
+                <div class="collapse-inner">
+                    <a href="prelim/intro.html">Introduction to Econ</a>
+                    <a href="prelim/consumers.html">Consumers & Business</a>
+                    <a href="prelim/markets.html">Markets</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <h3>📝 Past Papers</h3>
-                    <p>Archive of previous exam questions and mark schemes.</p>
-                    <a href="resources/papers.html" class="btn btn-outline-dark">Browse Papers</a>
+        <div class="accordion-item bg-transparent border-0">
+            <button class="btn-toggle" data-bs-toggle="collapse" data-bs-target="#prelimPapers">
+                📄 Preliminary Past Papers
+            </button>
+            <div id="prelimPapers" class="collapse" data-bs-parent="#menuAccordion">
+                <div class="collapse-inner">
+                    <a href="papers/prelim-2023.pdf">2023 Yearly Exam</a>
+                    <a href="papers/prelim-2022.pdf">2022 Yearly Exam</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-body text-center">
-                    <h3>📊 Data Sets</h3>
-                    <p>Real-world economic data for classroom analysis.</p>
-                    <a href="#" class="btn btn-outline-dark">View Data</a>
+        <div class="accordion-item bg-transparent border-0">
+            <button class="btn-toggle" data-bs-toggle="collapse" data-bs-target="#hscContent">
+                🎓 HSC Content
+            </button>
+            <div id="hscContent" class="collapse" data-bs-parent="#menuAccordion">
+                <div class="collapse-inner">
+                    <a href="hsc/global-economy.html">The Global Economy</a>
+                    <a href="hsc/australia.html">Australia's Place</a>
+                    <a href="hsc/policies.html">Economic Policies</a>
                 </div>
             </div>
         </div>
+
+        <div class="accordion-item bg-transparent border-0">
+            <button class="btn-toggle" data-bs-toggle="collapse" data-bs-target="#hscPapers">
+                📝 HSC Past Papers
+            </button>
+            <div id="hscPapers" class="collapse" data-bs-parent="#menuAccordion">
+                <div class="collapse-inner">
+                    <a href="papers/hsc-2024.pdf">2024 HSC Paper</a>
+                    <a href="papers/hsc-2023.pdf">2023 HSC Paper</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent border-0">
+            <button class="btn-toggle" data-bs-toggle="collapse" data-bs-target="#appsMenu">
+                ⚙️ Apps
+            </button>
+            <div id="appsMenu" class="collapse" data-bs-parent="#menuAccordion">
+                <div class="collapse-inner">
+                    <a href="apps/elasticity.html">PED Calculator</a>
+                    <a href="apps/multiplier.html">The Multiplier</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item bg-transparent border-0">
+            <a href="data/index.html" class="btn-toggle text-decoration-none">📊 Data</a>
+        </div>
+
     </div>
-</main>
+</div>
 
-<footer class="text-center py-4 text-muted">
-    <p>&copy; 2026 M. Bennett Economics</p>
-</footer>
+<div id="content">
+    <h1>Welcome, Economics Students</h1>
+    <p class="lead">Select a topic from the sidebar to begin your revision.</p>
+    <div class="alert alert-info">
+        <strong>Tip:</strong> You can find the latest HSC past papers under the "HSC Past Papers" tab.
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

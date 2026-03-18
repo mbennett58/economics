@@ -1,57 +1,112 @@
-/* Ensure the button acts as a flexbox to push the arrow to the right */
+/* style.css - Mr. Bennett's Economics Hub */
+
+:root { 
+    --sidebar-width: 280px; 
+    --primary-dark: #2c3e50;      /* Main Sidebar Color */
+    --secondary-dark: #1a252f;    /* Nested Menu Color */
+    --accent-blue: #3498db;       /* Hover Highlight */
+    --text-muted: #bdc3c7;
+}
+
+body { 
+    background-color: #f4f7f6; 
+    display: flex; 
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Container */
+#sidebar-container {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    background: var(--primary-dark);
+    color: white;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+/* Main Content Area */
+#content {
+    margin-left: var(--sidebar-width);
+    padding: 40px;
+    width: 100%;
+}
+
+/* Sidebar Buttons (Level 1 & 2) */
 .btn-toggle {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    transition: background 0.3s;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    text-align: left;
+    font-weight: 500;
+    transition: background 0.2s;
 }
 
-/* The arrow icon */
-.caret-icon {
-    font-size: 0.7rem;
-    transition: transform 0.3s ease;
-    color: #95a5a6;
-}
-
-/* Rotate the arrow 90 degrees when the menu is NOT collapsed (i.e., it is open) */
-.btn-toggle:not(.collapsed) .caret-icon {
-    transform: rotate(90deg);
+.btn-toggle:hover {
+    background-color: #34495e;
     color: white;
 }
 
-/* Ensure sub-items are stacked on new lines */
-.collapse-inner {
-    display: flex;
-    flex-direction: column; /* This puts each link on a new line */
-    background: #1a252f;
-}
-
-.collapse-inner a {
-    padding: 10px 40px; /* Indent the sub-items for hierarchy */
-    border-left: 3px solid transparent;
-}
-
-.collapse-inner a:hover {
-    border-left: 3px solid #3498db;
-    background: #243342;
-}
-
-/* The Arrow (Caret) */
+/* The CSS Caret (The Arrow) */
 .btn-toggle::after {
     display: inline-block;
     content: "";
     width: 0;
     height: 0;
-    margin-left: auto; /* Pushes arrow to the right */
-    vertical-align: middle;
+    margin-left: auto;
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
-    border-left: 6px solid #bdc3c7; /* The color of the arrow */
+    border-left: 6px solid #bdc3c7;
     transition: transform 0.2s ease;
 }
 
-/* Rotate the arrow when the menu is open */
+/* Rotate Arrow when menu is OPEN */
 .btn-toggle:not(.collapsed)::after {
     transform: rotate(90deg);
-    border-left-color: #ffffff; /* Make it bright when open */
+    border-left-color: white;
+}
+
+/* Nested Menu Containers */
+.collapse-inner {
+    display: flex;
+    flex-direction: column;
+    background: var(--secondary-dark);
+}
+
+/* Links inside the menus */
+.collapse-inner a {
+    padding: 10px 20px;
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.collapse-inner a:hover {
+    background: #243342;
+    border-left: 3px solid var(--accent-blue);
+    color: white;
+}
+
+/* Level 3 Specifics (The deeper items) */
+.sub-menu-bg {
+    background-color: #111a21 !important;
+}
+
+.small-text {
+    font-size: 0.85rem !important;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    #sidebar-container { width: 100%; height: auto; position: relative; }
+    #content { margin-left: 0; }
 }
